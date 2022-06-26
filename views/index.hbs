@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="/public/assets/logo.png" />
+  <script src="/public/js/contact-me.js"></script>
+  <title>Personal Web | Aditya Rizki</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-grey">
+    <div class="container">
+      <a class="navbar-brand me-5" href="/"><img src="/public/assets/logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-black me-3" aria-current="page" href="/">Home</a>
+          </li>
+          {{#if isLogin}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/add-project">Add Project</a>
+          </li>
+          {{/if}}
+        </ul>
+        {{#if isLogin}}
+        <span style="padding: 5px" class="m">Hallo {{user.name}},</span>
+        <a class="auth me-2" href="/logout">Logout</a>
+        {{else}}
+        <a class="auth" href="/login">Login</a>
+        <a class="auth me-2" href="/register">Register</a>
+        {{/if}}
+        <a class="btn bg-black text-white" href="/contact">Contact Me</a>
+      </div>
+    </div>
+  </nav>
+  <!--End Navbar -->
+
+  <!-- Card -->
+  <div class="parent d-flex justify-content-center align-items-center" style="max-width: 100%;">
+    <div class="cc row g-0 rounded">
+      {{#if messages.success}}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong><i>Login success!</i></strong> {{{messages.success}}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+      <div class="left col-md-8">
+        <div class="bdy card-body">
+          <h1 class="card-title mb-3">Hi, Welcome to my profile!</h1>
+          <p class="card-text">Perkenalkan nama saya Aditya Rizki Gerwawan.
+            Saya merupakan Seorang lulusan Rekayasa Perangkat Lunak yang sedang mencari kesempatan untuk bekerja dengan
+            cara yang menyenangkan dan menantang. Dimana lingkungan tersebut yang akan mendorong saya untuk
+            berkembang dan belajar hal baru dengan keterampilan yang diperlukan serta motivasi dari perusahaan
+            untuk melakukan yang terbaik demi membantu diri saya sendiri dan memajukan perusahaan.</p>
+          <a class="btn bg-black text-white me-2" href="/contact">Contact</a>
+          <a href="/public/assets/CV_Aditya.pdf" download style="color: black; text-decoration: none;">
+            download CV
+            <i class="bi bi-download"></i>
+          </a>
+          <div class="sosmed mt-4">
+            <a href="https://www.linkedin.com" target="_blank" style="color: black;" class="me-3"><i
+                class="fa-brands fa-linkedin fa-2xl linkedin" href></i></a>
+            <a href="https://www.instagram.com/adtyarizkii" target="_blank" style="color: black;" class="me-3"><i
+                class="fa-brands fa-instagram-square fa-2xl instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" style="color: black;" class="facebook me-3"><i
+                class="fa-brands fa-facebook fa-2xl facebook"></i></th></a>
+            <a href="https://www.twitter.com" target="_blank" style="color: black;" class="me-3"><i
+                class="fa-brands fa-twitter-square fa-2xl twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 right">
+        <img src="/public/assets/adit.jpg" class="img-fluid rounded-start" alt="Aditya">
+        <h2 class="text-black text-center">Aditya Rizki</h2>
+        <p class="text-center">Fullstack Developer</p>
+      </div>
+    </div>
+  </div>
+  <!-- End of Card -->
+
+  <!-- Project List -->
+  <div class="container">
+    <h1 class="text-center">MY PROJECT</h1>
+    <div class="row d-flex justify-content-start align-items-center">
+
+      {{#each project}}
+      <div class="col-md-4">
+        <div class="card shadow p-2 mb-4" style="width: auto;">
+          <a href="/project-detail/{{id}}" target="_blank" style="text-decoration: none; color: black;"><img
+              src="{{this.image}}" class="card-img-top img-size" alt="Project image">
+            <div class="card-body">
+              <h5 class="nm card-title">{{this.project_name}}</h5>
+          </a>
+          <p class="card-text"><small class="text-muted">Duration: {{this.distanceDate}}</small></p>
+          <p class="desc card-text">{{this.description}}</p>
+          <div class="tech-icon d-flex gap-2 mb-3">
+            {{#if this.technologies.[0]}}<i class='fa-brands fa-node-js me-2'></i>{{/if}}
+            {{#if this.technologies.[1]}}<i class='fa-brands fa-react me-2'></i>{{/if}}
+            {{#if this.technologies.[2]}}<i class='fa-brands fa-android me-2'></i>{{/if}}
+            {{#if this.technologies.[3]}}<i class='fa-brands fa-java me-2'></i>{{/if}}
+          </div>
+          {{#if this.isLogin}}
+          <div class="d-flex gap-1 justify-content-center align-items-center">
+            <a href="/update-project/{{id}}" class="btn bg-black text-white btn-sm" style="width: 100%;">Edit</a>
+            <a href="/delete-project/{{id}}" class="btn bg-black text-white btn-sm" style="width: 100%;">Delete</a>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+  <!-- End of Project List -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

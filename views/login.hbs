@@ -1,0 +1,68 @@
+<html>
+<head>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="/public/assets/logo.png" />
+    <title>Personal Web | Login</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-grey">
+        <div class="container">
+          <a class="navbar-brand me-5" href="/"><img src="/public/assets/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active me-3" aria-current="page" href="/">Home</a>
+              </li>
+            </ul>
+            <a class="auth active text-black" href="/login">Login</a>
+            <a class="auth me-2" href="/register">Register</a>
+            <a class="btn bg-black text-white" href="/contact">Contact Me</a>
+          </div>
+        </div>
+    </nav>
+    <!--End Navbar -->
+    <!-- Add Project Form -->
+    <div class="container-project-form d-flex justify-content-center align-items-center">
+      <form action='/login' method='POST'>
+        <div class="mb-1">
+        <h1 class="text-center">Login</h1>
+        {{#if messages.error}}
+            <div class='alert alert-danger' role='alert'>
+                {{messages.error}}
+            </div>
+        {{/if}}
+        {{#if messages.warning}}
+          <div class='alert alert-warning' role='alert'>
+            {{messages.warning}}
+          </div>
+        {{/if}}
+        {{#if messages.success}}
+          <div class='alert alert-success' role='alert'>
+            {{messages.success}}
+          </div>
+        {{/if}}
+          <label for="input-email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="input-email" placeholder="Input Your Email...">
+        </div>
+        <div class="mb-1">
+          <label for="input-password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="input-password" placeholder="Input Your Password...">
+        </div>
+        
+        <div class="text-end mt-2">
+        <button class="btn bg-black text-white" id="checkBtn">Submit</button>
+        </div>
+      </form>
+    </div>
+    <!-- End of Add Project Form -->
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* GENERAL */
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+
+.bg-black {
+    background-color: black;
+}
+
+.text-black {
+    color: #030303 !important;
+    font-weight: 700;
+}
+
+.bg-grey {
+    background-color: #f4f3f3;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: black !important; 
+}
+
+.img-size {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* NAVBAR STYLING */
+nav ul li a:hover {
+    font-weight: 700;
+}
+
+a:hover{
+    color: #030303;
+    font-weight: 600; 
+}
+
+.auth {
+    text-decoration: none;
+    padding: 10px;
+    color: #333333;
+}
+
+.navbar {
+    height: 7vh;
+}
+/* END OF NAVBAR */
+
+/* INDEX STYLING */
+.parent {
+    height: 93vh;
+    background-color: #d9e3eb;
+}
+
+.cc {
+    width: 90%;
+    height: 80%;
+    background-color: white;
+}
+
+.left {
+    padding: 50px;
+    /* background-color: blue; */
+}
+
+.right {
+    /* background-color: purple; */
+    padding: 50px;
+}
+
+.sosmed i:hover {
+    transform: scale(1.2);
+}
+
+.linkedin:hover {
+    color: #04009a;
+}
+
+.facebook:hover {
+    color: blue;
+}
+
+.instagram:hover {
+    color: rgb(255, 32, 32);
+}
+
+.twitter:hover {
+    color: #00adb5;
+}
+
+.tech-icon {
+    height: auto;
+    font-size: 30px;
+}
+
+.desc {
+    overflow: hidden;
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.nm {
+    overflow: hidden;
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+/* END OF INDEX */
+
+/* PROJECT STYLING */
+.container-project-form {
+    height: 93vh;
+    background-color: #d9e3eb;
+}
+
+.container-project-form form {
+    width: 430px;
+}
+
+.container-project-form label {
+    font-weight: 600;
+    font-size: 20px;
+}
+/* END OF PROJECT */
+
+/* CONTACT-ME STYLING */
+.container-contact-form {
+    height: 93vh;
+    background-color: #d9e3eb;
+}
+
+.container-contact-form form {
+    width: 430px;
+}
+
+.container-contact-form label {
+    font-weight: 600;
+    font-size: 20px;
+}
+/* END OF CONTACT-ME */
+
+/* PROJECT-DETAIL STYLING */
+.head-detail{
+    height: 70vh;
+}
+
+.head-detail-image{
+    border-radius: 10px;
+    width: 60%;
+}
+
+.head-tech-icon{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    height: auto;
+    font-size: 20px;
+}
+/* END OF PROJECT-DETAIL */
+
+/* UPDATE-PROJECT STYLING */
+.uim img {
+    height: 36px;
+}
+/* END OF UPDATE-PROJECT */

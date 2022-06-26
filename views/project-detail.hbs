@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="/public/assets/logo.png" />
+    <title>Personal Web | Project Detail</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-grey">
+        <div class="container">
+          <a class="navbar-brand me-5" href="/"><img src="/public/assets/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active me-3" aria-current="page" href="/">Home</a>
+              </li>
+             {{#if isLogin}}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/add-project">Add Project</a>
+              </li>
+              {{/if}}
+            </ul>
+              {{#if isLogin}}
+              <a class="auth me-2" href="/logout">Logout</a>
+              {{else}}
+              <a class="auth" href="/login">Login</a>
+              <a class="auth me-2" href="/register">Register</a>
+              {{/if}} 
+              <a class="btn bg-black text-white" href="/contact">Contact Me</a>
+          </div>
+        </div>
+    </nav>
+    <!--End of Navbar -->
+
+    <!-- Detail -->
+    <div class="m-4">
+        <h1 class="text-center"> {{project.project_name}} </h1>
+        <div class="head-detail gap-4 d-flex mb-4">
+        <img src="{{project.image}}" class="head-detail-image">
+        <div class="col">
+            <div class="head-detail-duration">
+            <h3 class="mb-3">Duration</h3>
+            <p><i class="fa-solid fa-calendar-days"></i> {{project.start_date}} - {{project.end_date}}</p>
+            <p><i class="fa-solid fa-clock"></i> {{project.duration}}</p>
+            </div>
+            <div><br>
+                <h3 class="mb-3">Technologies</h3>
+                <div class="head-tech-icon">
+                    {{#if project.technologies.[0]}}<p><i class="fa-brands fa-node-js"></i> Node Js</p>{{/if}}
+                    {{#if project.technologies.[1]}}<p><i class="fa-brands fa-react"></i> React Js</p>{{/if}}
+                    {{#if project.technologies.[2]}}<p><i class="fa-brands fa-android"></i> Android</p>{{/if}}
+                    {{#if project.technologies.[3]}}<p><i class="fa-brands fa-java"></i> Java</p>{{/if}}
+                </div> 
+            </div>
+        </div>
+        </div>
+          
+          <div>
+          <p style="text-align: justify;">
+            {{project.description}}
+          </p>
+        </div>
+    </div>
+    <!-- End of Detail -->
+
+
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
